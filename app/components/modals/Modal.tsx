@@ -175,6 +175,7 @@ const Modal: React.FC<modalsProps> = ({
                                     />
 
                                 </div>
+                                {footer}
 
                             </div>
                         </div>
