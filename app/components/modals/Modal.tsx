@@ -62,13 +62,7 @@ const Modal: React.FC<modalsProps> = ({
         return null;
     }
 
-    const modalContentClass = `
-        translate
-        duration-300
-        h-full
-        ${showModal ? 'translate-y-0' : 'translate-y-full'}
-        ${showModal ? 'opacity-100' : 'opacity-0'}
-    `;
+
 
     return (
         <>
@@ -99,7 +93,13 @@ const Modal: React.FC<modalsProps> = ({
                         h-auto
                     '
                 >
-                    <div className={modalContentClass}>
+                    <div className={`
+                          translate
+                          duration-300
+                          h-full
+                          ${showModal ? 'translate-y-0' : 'translate-y-full'}
+                          ${showModal ? 'opacity-100' : 'opacity-0'}
+                        `}>
                         <div
                             className='
                                 translate
