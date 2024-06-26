@@ -1,18 +1,18 @@
 'use client';
 import {create} from 'zustand'
 
-interface LRentModalStore {
+interface RentModalStore {
     isOpen : boolean;
     onOpen : () => void;
     onClose : () => void;
 }
 
-const useLRentModal = create<LRentModalStore>((set) => ({
+const useRentModal = create<RentModalStore>((set) => ({
     isOpen : false,
     onOpen : () => set({isOpen : true}),
     onClose : () => set({isOpen : false}),
 
 }))
 
-export default useLRentModal
+export default useRentModal
 
