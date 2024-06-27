@@ -22,28 +22,36 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     value
 }) => {
     const handleUpload = useCallback((result: any) => {
+        console.log('Upload result:', result); 
         onChange(result.info.secure_url);
 
 
 
     },[onChange])
 
+    console.log('Component value:', value);
+
   return (
     <CldUploadWidget 
        onUpload = {handleUpload}
-       uploadPreset='f54zirtx'
+       uploadPreset='zrxogcf5'
        options={{
         maxFiles: 1
        }}
     >
         {({open}) => {
+
+          console.log('Widget open function:', open);
             return (
                 <div
-                  onClick={ () => open?.()}
+                  onClick={ () => {
+                    console.log('Div clicked, opening widget');
+                    open?.()
+                }}
                   className='
                     relative
                     cursor-pointer
-                    hover:capacity-70
+                    hover:opacity-70
                     transition
                     border-dashed
                     border-2
@@ -64,13 +72,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                     </div>
                     {value && (
                         <div
-                         className='absolute inset-0-full h-full'
+                         className='absolute inset-0 w-full h-full'
                         >
                             <Image 
                             alt='upload'
                             fill
-                            style={{objectFit : 'cover'}}
+                            style={{ objectFit : 'cover'}}
                             src={value}
+                            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading='lazy'
                             
                             />
                         </div>
