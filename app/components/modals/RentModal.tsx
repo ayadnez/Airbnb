@@ -33,7 +33,7 @@ const RentModal = () => {
     const router = useRouter();
 
     const [step,setStep] = useState(STEPS.CATEGORY);
-    const [isLoading, setisLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
@@ -86,26 +86,31 @@ const RentModal = () => {
     }
 
     const onSubmit : SubmitHandler<FieldValues> = (data) => {
-        if(step === STEPS.PRICE) {
+        if(step !== STEPS.PRICE) {
             return onNext();
         }
 
-        setisLoading(true);
+        setIsLoading(true);
 
-        axios.post('/api/listings',data)
-         .then( () => {
-            toast.success('listing created!');
-             router.refresh();
-             reset();
-             setStep(STEPS.CATEGORY);
-             rentModal.onClose();
-         })
-         .catch( () => {
-            toast.error('something went wrong')
-         }).finally( () =>{
-            setisLoading(false);
-         })
-    }
+        axios
+        .post("/api/listings", data)
+        .then(() => {
+          toast.success("Listing Created!");
+          router.refresh();
+          reset();
+          setStep(STEPS.CATEGORY);
+          rentModal.onClose();
+        })
+    
+        .catch(() => {
+          toast.error("Something Went Wrong");
+          console.log({data});
+         // console.error(error.response.data)
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    };
 
     const actionLabel = useMemo(() => {
         if(step === STEPS.PRICE){
