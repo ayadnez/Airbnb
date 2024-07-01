@@ -121,12 +121,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 small
                 label = {actionLabel}
                 onClick = {handleCancel}
-
-              
               />
             )}
         </div>
-
     </div>
   )
 
