@@ -8,15 +8,16 @@ import { format } from 'date-fns';
 import Image from 'next/image';
 import HeartButton from '../HeartButton';
 import Button from '../Button';
+import { safeListing, SafeReservation, SafeUser } from '@/app/types';
 
 interface ListingCardProps {
-    data : Listing ;
-    reservation? : Reservation;
+    data : safeListing ;
+    reservation? : SafeReservation;
     onAction? : (id: string) => void;
     disabled ? : boolean;
     actionLabel ? : string;
     actionId? : string;
-    currentUser ? : User | null
+    currentUser ? : SafeUser | null
 
 
 }
