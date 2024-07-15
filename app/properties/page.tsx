@@ -36,7 +36,7 @@ const PropertiesPage = async () => {
 
     return (
         <PropertiesClient
-          listings= {listings}
+          listings = {listings}
           currentUser = {currentUser}
         />
     )

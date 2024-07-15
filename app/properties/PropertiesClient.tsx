@@ -32,7 +32,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
 
         setDeletingId(id);
 
-        axios.delete(`/api/properties/${id}`)
+        axios.delete(`/api/listings/${id}`)
         .then( () => {
           toast.success('listing deleted ');
           router.refresh();
