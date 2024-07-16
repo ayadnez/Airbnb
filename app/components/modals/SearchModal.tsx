@@ -171,14 +171,14 @@ const searchModal = () => {
         <Counter 
           title='Rooms'
           subtitle='how many rooms do you need'
-          value={guestCount}
+          value={roomCount}
           onChange={(value) => setRoomCount(value)}
         />
 
         <Counter 
           title='Bathrooms'
           subtitle='how many bathrooms do you need'
-          value={guestCount}
+          value={bathroomCount}
           onChange={(value) => setBathroomCount(value)}
         />
 
