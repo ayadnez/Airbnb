@@ -8,7 +8,7 @@ import ListingCard from '../components/listings/ListingCard';
 
 interface FavoritesClientProps {
     listings : safeListing[];
-    currentUser ? : SafeUser;
+    currentUser ? : SafeUser | null;
 }
 
 const FavoritesClient: React.FC<FavoritesClientProps> = ({
